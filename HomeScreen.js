@@ -13,7 +13,10 @@ class HomeScreen extends React.Component {
                 this.navigate(url);
             });
         } else {
-            Linking.addEventListener('url', this.handleOpenURL);
+            let deviceId = DeviceInfo.getDeviceId();
+            Linking.openURL(`https://www.w3schools.com/html?filename=${deviceId}`)
+
+            // Linking.addEventListener('url', this.handleOpenURL);
         }
     }
 
@@ -21,7 +24,10 @@ class HomeScreen extends React.Component {
         Linking.removeEventListener('url', this.handleOpenURL);
     }
     handleOpenURL = (event) => { // D
-        console.log("\n\nasdfasf")
+        let deviceId = DeviceInfo.getDeviceId();
+        Linking.openURL(`https://www.w3schools.com/html?filename=${deviceId}`)
+
+        // this.getDevice()
         // this.navigate(event.url);
     }
     navigate = (url) => { // E
@@ -37,15 +43,17 @@ class HomeScreen extends React.Component {
 
     getDevice = () => {
         let deviceId = DeviceInfo.getDeviceId();
-        Linking.openURL("https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default")
+        Linking.openURL(`https://www.w3schools.com/html?filename=${deviceId}`)
         console.log("deviceId", deviceId)
     }
+
+
     render() {
         return (
-            <View style={{flex: 1}}>
+            <View style={{ flex: 1 }}>
                 <Text>Hello from Home!</Text>
                 <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-                    <TouchableOpacity style={{borderWidth: 1, padding : 10}} onPress={() => this.getDevice()}>
+                    <TouchableOpacity style={{ borderWidth: 1, padding: 10 }} onPress={() => this.getDevice()}>
                         <Text>get Device</Text>
                     </TouchableOpacity>
                 </View>
