@@ -30,6 +30,8 @@ class HomeScreen extends React.Component {
         // this.getDevice()
         // this.navigate(event.url);
     }
+
+    
     navigate = (url) => { // E
         const { navigate } = this.props.navigation;
         const route = url.replace(/.*?:\/\//g, '');
