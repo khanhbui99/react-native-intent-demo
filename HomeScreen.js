@@ -37,6 +37,7 @@ class HomeScreen extends React.Component {
 
     getDevice = () => {
         let deviceId = DeviceInfo.getDeviceId();
+        Linking.openURL("https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default")
         console.log("deviceId", deviceId)
     }
     render() {
